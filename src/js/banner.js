@@ -94,7 +94,7 @@ document.querySelector('#banner').innerHTML = `
                 </div>
             </label>
         </div>
-        <a id="continue-button" href="#">Continue</a>
+        <a id="continue-button" class="plans__button" href="#">Continue</a>
     </section>
     <footer class="banner__footer">
         <a href="#">Terms of Use</a>
