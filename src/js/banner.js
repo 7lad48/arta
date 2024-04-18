@@ -1,50 +1,15 @@
 import '../css/null.css'
 import '../css/style.css'
 import '../css/fonts.css'
-
-function getSelectedLanguage() {
-    const systemLanguage = navigator.language.split("-")[0];
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLanguage = urlParams.get("lang");
-    const availableLanguages = ["de", "en", "es", "fr", "ja", "pt"];
-
-    let selectedLanguage = urlLanguage || systemLanguage;
-
-    if (!availableLanguages.includes(selectedLanguage)) {
-        selectedLanguage = "en";
-        updateLanguageQueryParam(selectedLanguage);
-    } else if (urlLanguage !== selectedLanguage) {
-        updateLanguageQueryParam(selectedLanguage);
-    }
-
-    return selectedLanguage;
-}
-
-function updateLanguageQueryParam(language) {
-    const newUrl = `${window.location.origin}${window.location.pathname}?lang=${language}`;
-    window.history.replaceState(null, null, newUrl);
-}
-
-function loadLanguageData(language) {
-    const jsonFilePath = `../../public/langs/${language}.json`;
-
-    fetch(jsonFilePath)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error("Ошибка при загрузке языка:", error);
-        });
-}
+import { getSelectedLanguage, loadLanguageData } from './languageUtils.js';
 
 const selectedLanguage = getSelectedLanguage();
-loadLanguageData(selectedLanguage);
+const languageData = await loadLanguageData(selectedLanguage);
 
 document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
     <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
-    <h2 class="banner__title">Get Unlimited Access</h2>
+    <h2 class="banner__title">${languageData["Get Unlimited <br>Access"]}</h2>
     <section class="banner__features features">
     
         <article class="features__item">
@@ -65,7 +30,7 @@ document.querySelector('#banner').innerHTML = `
                     ../../public/images/features/f1/f1@3x.jpg 3x"
                 alt="feature">
             </picture>
-            <p class="features__item-description">Unlimited Art Creation</p>
+            <p class="features__item-description">${languageData["Unlimited Art <br>Creation"]}</p>
         </article>
         
         <article class="features__item">
@@ -86,7 +51,7 @@ document.querySelector('#banner').innerHTML = `
                     ../../public/images/features/f2/f2@3x.jpg 3x"
                 alt="feature">
             </picture>
-            <p class="features__item-description">Exclusive Styles</p>
+            <p class="features__item-description">${languageData["Exclusive <br>Styles"]}</p>
         </article>
         
         <article class="features__item">
@@ -107,7 +72,7 @@ document.querySelector('#banner').innerHTML = `
                     ../../public/images/features/f3/f3@3x.jpg 3x"
                 alt="feature">
             </picture>
-            <p class="features__item-description">Magic Avatars With 20% Off</p>
+            <p class="features__item-description">${languageData["Magic Avatars <br>With 20% Off"]}</p>
         </article>
         
     </section>
@@ -117,29 +82,32 @@ document.querySelector('#banner').innerHTML = `
                 <input type="radio" name="plans" value="apple" checked>
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
-                        <div class="plans__item-offer-title">YEARLY ACCESS</div>
-                        <div class="plans__item-offer-description">Just $39.99 per year</div>
+                        <div class="plans__item-offer-title">${languageData["YEARLY ACCESS"]}</div>
+<!--                        <div class="plans__item-offer-description">Just $39.99 per year</div>-->
+                        <div class="plans__item-offer-description">${languageData["Just {{price}} per year"]}</div>
                     </div>
-                    <div class="plans__item-price">$0.48 <br/> per week</div>
-                    <span class="plans__item--best-offer-mark">BEST OFFER</span>
+<!--                    <div class="plans__item-price">$0.48 <br/> per week</div>-->
+                    <div class="plans__item-price">${languageData["{{price}} <br>per week"]}</div>
+                    <span class="plans__item--best-offer-mark">${languageData["BEST OFFER"]}</span>
                 </div>
             </label>
             <label class="plans__item">
                 <input type="radio" name="plans" value="google">
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
-                        <div class="plans__item-offer-title">WEEKLY ACCESS</div>
+                        <div class="plans__item-offer-title">${languageData["WEEKLY ACCESS"]}</div>
                     </div>
-                    <div class="plans__item-price">$6.99 <br/> per week</div>
+<!--                    <div class="plans__item-price">$6.99 <br/> per week</div>-->
+                    <div class="plans__item-price">${languageData["{{price}} <br>per week"]}</div>
                 </div>
             </label>
         </div>
-        <a id="continue-button" class="plans__button" href="#">Continue</a>
+        <a id="continue-button" class="plans__button" href="#">${languageData["Continue"]}</a>
     </section>
     <footer class="banner__footer">
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Restore</a>
+        <a href="#">${languageData["Terms of Use"]}</a>
+        <a href="#">${languageData["Privacy Policy"]}</a>
+        <a href="#">${languageData["Restore"]}</a>
     </footer>
   </section>
 `
