@@ -6,6 +6,7 @@ import { getSelectedLanguage, loadLanguageData } from './languageUtils.js';
 const selectedLanguage = getSelectedLanguage();
 const languageData = await loadLanguageData(selectedLanguage);
 
+
 document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
     <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
@@ -111,5 +112,12 @@ document.querySelector('#banner').innerHTML = `
     </footer>
   </section>
 `
+const continueButton = document.querySelector('#continue-button');
+const appleRadio = document.querySelector('input[name="plans"][value="apple"]');
+const googleRadio = document.querySelector('input[name="plans"][value="google"]');
+continueButton.addEventListener('click', () => {
+    const newHref = `https://${appleRadio.checked ? appleRadio.value : googleRadio.value}.com`;
+    continueButton.setAttribute('href', newHref);
+})
 
 
