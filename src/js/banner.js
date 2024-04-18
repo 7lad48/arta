@@ -5,6 +5,7 @@ import '../css/fonts.css'
 
 document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
+    <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
     <h2 class="banner__title">Get Unlimited Access</h2>
     <section class="banner__features features">
     
@@ -82,6 +83,7 @@ document.querySelector('#banner').innerHTML = `
                         <div class="plans__item-offer-description">Just $39.99 per year</div>
                     </div>
                     <div class="plans__item-price">$0.48 <br/> per week</div>
+                    <span class="plans__item--best-offer-mark">BEST OFFER</span>
                 </div>
             </label>
             <label class="plans__item">
