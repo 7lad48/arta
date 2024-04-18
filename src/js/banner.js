@@ -2,6 +2,44 @@ import '../css/null.css'
 import '../css/style.css'
 import '../css/fonts.css'
 
+function getSelectedLanguage() {
+    const systemLanguage = navigator.language.split("-")[0];
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLanguage = urlParams.get("lang");
+    const availableLanguages = ["de", "en", "es", "fr", "ja", "pt"];
+
+    let selectedLanguage = urlLanguage || systemLanguage;
+
+    if (!availableLanguages.includes(selectedLanguage)) {
+        selectedLanguage = "en";
+        updateLanguageQueryParam(selectedLanguage);
+    } else if (urlLanguage !== selectedLanguage) {
+        updateLanguageQueryParam(selectedLanguage);
+    }
+
+    return selectedLanguage;
+}
+
+function updateLanguageQueryParam(language) {
+    const newUrl = `${window.location.origin}${window.location.pathname}?lang=${language}`;
+    window.history.replaceState(null, null, newUrl);
+}
+
+function loadLanguageData(language) {
+    const jsonFilePath = `../../public/langs/${language}.json`;
+
+    fetch(jsonFilePath)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Ошибка при загрузке языка:", error);
+        });
+}
+
+const selectedLanguage = getSelectedLanguage();
+loadLanguageData(selectedLanguage);
 
 document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
