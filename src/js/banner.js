@@ -1,19 +1,19 @@
-import '../css/null.css'
-import '../css/style.css'
-import '../css/fonts.css'
-import { getSelectedLanguage, loadLanguageData } from './languageUtils.js';
+import '../css/null.css';
+import '../css/style.css';
+import '../css/fonts.css';
+import {getSelectedLanguage, loadLanguageData} from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
 
 const selectedLanguage = getSelectedLanguage();
-let data = await loadLanguageData(selectedLanguage);
-const {languageData, language} = data;
-const prices = await getActualPrice(language)
-
 function replacePrice(text, replacement) {
     return text.replace('{{price}}', replacement);
 }
+(async function getData() {
+  const data = await loadLanguageData(selectedLanguage);
+  const {language, languageData} = data;
+  const prices = await getActualPrice(data.language);
 
-document.querySelector('#banner').innerHTML = `
+  document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
     <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
     <h2 class="banner__title">${languageData["Get Unlimited <br>Access"]}</h2>
@@ -112,11 +112,13 @@ document.querySelector('#banner').innerHTML = `
   </section>
 `
 
-const continueButton = document.querySelector('#continue-button');
-continueButton.addEventListener('click', () => {
-    const radioButtons = document.querySelectorAll('input[name="plans"]');
-    const selectedRadioButton = Array.from(radioButtons).find(radio => radio.checked);
-    if (selectedRadioButton) {
-        continueButton.setAttribute('href', `https://${selectedRadioButton.value}/`);
-    }
-})
+    const continueButton = document.querySelector('#continue-button');
+    continueButton.addEventListener('click', () => {
+        const radioButtons = document.querySelectorAll('input[name="plans"]');
+        const selectedRadioButton = Array.from(radioButtons).find(radio => radio.checked);
+        if (selectedRadioButton) {
+            continueButton.setAttribute('href', `https://${selectedRadioButton.value}/`);
+        }
+    })
+
+})()
