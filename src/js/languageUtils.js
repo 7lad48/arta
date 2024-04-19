@@ -22,11 +22,14 @@ const updateLanguageQueryParam = (language) => {
 
 const loadLanguageData = async (language) => {
     const jsonFilePath = `../../public/langs/${language}.json`;
-    let langData;
+    let data = {
+        language: language,
+        languageData: {},
+    };
     try {
         const response = await fetch(jsonFilePath);
-        langData = await response.json();
-        return langData;
+        data.languageData = await response.json();
+        return data;
     } catch (error) {
         console.error("Ошибка при загрузке языка:", error);
         return null;

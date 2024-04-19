@@ -2,17 +2,22 @@ import '../css/null.css'
 import '../css/style.css'
 import '../css/fonts.css'
 import { getSelectedLanguage, loadLanguageData } from './languageUtils.js';
+import {getActualPrice} from "./priceUtils.js";
 
 const selectedLanguage = getSelectedLanguage();
-const languageData = await loadLanguageData(selectedLanguage);
+const data = await loadLanguageData(selectedLanguage);
+const {languageData, language} = data;
+const prices = await getActualPrice(language)
 
+function replacePrice(text, replacement) {
+    return text.replace('{{price}}', replacement);
+}
 
 document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
     <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
     <h2 class="banner__title">${languageData["Get Unlimited <br>Access"]}</h2>
     <section class="banner__features features">
-    
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
@@ -33,7 +38,6 @@ document.querySelector('#banner').innerHTML = `
             </picture>
             <p class="features__item-description">${languageData["Unlimited Art <br>Creation"]}</p>
         </article>
-        
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
@@ -54,7 +58,6 @@ document.querySelector('#banner').innerHTML = `
             </picture>
             <p class="features__item-description">${languageData["Exclusive <br>Styles"]}</p>
         </article>
-        
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
@@ -75,35 +78,31 @@ document.querySelector('#banner').innerHTML = `
             </picture>
             <p class="features__item-description">${languageData["Magic Avatars <br>With 20% Off"]}</p>
         </article>
-        
     </section>
     <section class="banner__plans plans">
         <div class="plans__items">
             <label class="plans__item">
-                <input type="radio" name="plans" value="apple" checked>
+                <input type="radio" name="plans" value="apple.com" checked>
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
                         <div class="plans__item-offer-title">${languageData["YEARLY ACCESS"]}</div>
-<!--                        <div class="plans__item-offer-description">Just $39.99 per year</div>-->
-                        <div class="plans__item-offer-description">${languageData["Just {{price}} per year"]}</div>
+                        <div class="plans__item-offer-description">${replacePrice(languageData["Just {{price}} per year"], `${prices.yearly.perYear}`)}</div>
                     </div>
-<!--                    <div class="plans__item-price">$0.48 <br/> per week</div>-->
-                    <div class="plans__item-price">${languageData["{{price}} <br>per week"]}</div>
+                    <div class="plans__item-price">${replacePrice(languageData["{{price}} <br>per week"], `${prices.yearly.perWeek}`)}</div>
                     <span class="plans__item--best-offer-mark">${languageData["BEST OFFER"]}</span>
                 </div>
             </label>
             <label class="plans__item">
-                <input type="radio" name="plans" value="google">
+                <input type="radio" name="plans" value="google.com">
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
                         <div class="plans__item-offer-title">${languageData["WEEKLY ACCESS"]}</div>
                     </div>
-<!--                    <div class="plans__item-price">$6.99 <br/> per week</div>-->
-                    <div class="plans__item-price">${languageData["{{price}} <br>per week"]}</div>
+                    <div class="plans__item-price">${replacePrice(languageData["{{price}} <br>per week"], `${prices.weekly}`)}</div>
                 </div>
             </label>
         </div>
-        <a id="continue-button" class="plans__button" href="#">${languageData["Continue"]}</a>
+        <a id="continue-button" class="plans__button" href="https://apple.com">${languageData["Continue"]}</a>
     </section>
     <footer class="banner__footer">
         <a href="#">${languageData["Terms of Use"]}</a>
@@ -112,12 +111,12 @@ document.querySelector('#banner').innerHTML = `
     </footer>
   </section>
 `
+
 const continueButton = document.querySelector('#continue-button');
-const appleRadio = document.querySelector('input[name="plans"][value="apple"]');
-const googleRadio = document.querySelector('input[name="plans"][value="google"]');
 continueButton.addEventListener('click', () => {
-    const newHref = `https://${appleRadio.checked ? appleRadio.value : googleRadio.value}.com`;
-    continueButton.setAttribute('href', newHref);
+    const radioButtons = document.querySelectorAll('input[name="plans"]');
+    const selectedRadioButton = Array.from(radioButtons).find(radio => radio.checked);
+    if (selectedRadioButton) {
+        continueButton.setAttribute('href', `https://${selectedRadioButton.value}/`);
+    }
 })
-
-
