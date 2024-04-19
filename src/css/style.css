@@ -11,15 +11,15 @@
     justify-content: flex-end;
     align-items: center;
     background-image: image-set(
-            url('public/images/background/bg@3x.avif') 3x,
-            url('public/images/background/bg@2x.avif') 2x,
-            url('public/images/background/bg.avif') 1x,
-            url('public/images/background/bg@3x.webp') 3x,
-            url('public/images/background/bg@2x.webp') 2x,
-            url('public/images/background/bg.webp') 1x,
-            url('public/images/background/bg@3x.jpg') 3x,
-            url('public/images/background/bg@2x.jpg') 2x,
-            url('public/images/background/bg.jpg') 1x
+            url('/public/images/background/bg@3x.avif') 3x,
+            url('/public/images/background/bg@2x.avif') 2x,
+            url('/public/images/background/bg.avif') 1x,
+            url('/public/images/background/bg@3x.webp') 3x,
+            url('/public/images/background/bg@2x.webp') 2x,
+            url('/public/images/background/bg.webp') 1x,
+            url('/public/images/background/bg@3x.jpg') 3x,
+            url('/public/images/background/bg@2x.jpg') 2x,
+            url('/public/images/background/bg.jpg') 1x
     );
     background-position: 0 0;
     background-size: cover;
@@ -33,7 +33,6 @@
     width: 22px;
     height: 22px;
     padding: 5px;
-    //background-color: #0035FF;
     align-self: flex-start;
     /*top: 75px;*/
     top: 8%;
