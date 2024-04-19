@@ -5,7 +5,7 @@ import { getSelectedLanguage, loadLanguageData } from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
 
 const selectedLanguage = getSelectedLanguage();
-const data = await loadLanguageData(selectedLanguage);
+let data = await loadLanguageData(selectedLanguage);
 const {languageData, language} = data;
 const prices = await getActualPrice(language)
 
@@ -85,10 +85,10 @@ document.querySelector('#banner').innerHTML = `
                 <input type="radio" name="plans" value="apple.com" checked>
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
-                        <div class="plans__item-offer-title">${languageData["YEARLY ACCESS"]}</div>
-                        <div class="plans__item-offer-description">${replacePrice(languageData["Just {{price}} per year"], `${prices.yearly.perYear}`)}</div>
+                        <div class='plans__item-offer-title --${language}'>${languageData["YEARLY ACCESS"]}</div>
+                        <div class="plans__item-offer-description --${language}">${replacePrice(languageData["Just {{price}} per year"], `${prices.yearly.perYear}`)}</div>
                     </div>
-                    <div class="plans__item-price">${replacePrice(languageData["{{price}} <br>per week"], `${prices.yearly.perWeek}`)}</div>
+                    <div class="plans__item-price --${language}">${replacePrice(languageData["{{price}} <br>per week"], `${prices.yearly.perWeek}`)}</div>
                     <span class="plans__item--best-offer-mark">${languageData["BEST OFFER"]}</span>
                 </div>
             </label>
@@ -96,15 +96,15 @@ document.querySelector('#banner').innerHTML = `
                 <input type="radio" name="plans" value="google.com">
                 <div class="plans__item-content">
                     <div class="plans__item-offer">
-                        <div class="plans__item-offer-title">${languageData["WEEKLY ACCESS"]}</div>
+                        <div class="plans__item-offer-title --${language}">${languageData["WEEKLY ACCESS"]}</div>
                     </div>
-                    <div class="plans__item-price">${replacePrice(languageData["{{price}} <br>per week"], `${prices.weekly}`)}</div>
+                    <div class="plans__item-price --${language}">${replacePrice(languageData["{{price}} <br>per week"], `${prices.weekly}`)}</div>
                 </div>
             </label>
         </div>
         <a id="continue-button" class="plans__button" href="https://apple.com">${languageData["Continue"]}</a>
     </section>
-    <footer class="banner__footer">
+    <footer class="banner__footer --${language}">
         <a href="#">${languageData["Terms of Use"]}</a>
         <a href="#">${languageData["Privacy Policy"]}</a>
         <a href="#">${languageData["Restore"]}</a>

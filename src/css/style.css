@@ -122,16 +122,24 @@
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
 }
-.plans__item-offer{
 
-}
 .plans__item-offer-title{
     font-weight: 600;
     color: #fff;
 }
 .plans__item-price{
-    padding: 1px 0;
+    margin-top: 1px;
 }
+.plans__item-offer-title:not(.--en, .--es, .--pt, .--ja){
+    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
+}
+.plans__item-offer-description:not(.--en, .--es, .--de, .--ja){
+    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
+}
+.plans__item-price:not(.--en, .--es, .--pt, .--ja){
+    font-size:clamp(0.875rem, 0.023rem + 3.64vw, 1rem);
+}
+
 .plans__item > input[type="radio"]:checked + .plans__item-content {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 1);
@@ -185,8 +193,10 @@
     gap: 30px;
     margin: 44px auto 10px auto;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
     white-space: nowrap;
+}
+.banner__footer:not(.--en) {
+    font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
 /* media */
 @media (max-height: 737px) {
@@ -204,4 +214,3 @@
         margin-top: 28px;
     }
 }
-
