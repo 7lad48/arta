@@ -1,10 +1,16 @@
+html, body{
+    overflow: hidden;
+}
 .banner__content {
-    position: relative;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
     height: 100lvh;
     width: 100lvw;
     max-width: 430px;
     margin: 0 auto;
-    overflow: hidden;
     padding: 0 24px;
     display: flex;
     flex-direction: column;

@@ -3,7 +3,7 @@ import '../css/style.css';
 import '../css/fonts.css';
 import {getSelectedLanguage, loadLanguageData} from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
-
+const SRC = import.meta.env.MODE === 'development' ? '../../public/' : '/arta/assets';
 const selectedLanguage = getSelectedLanguage();
 function replacePrice(text, replacement) {
     return text.replace('{{price}}', replacement);
@@ -15,25 +15,25 @@ function replacePrice(text, replacement) {
 
   document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
-    <a href="#" class="banner__close-btn"><img src="../../public/images/icons/cross.svg" alt="cross-icon"></a>
+    <a href="#" class="banner__close-btn"><img src="${SRC}images/icons/cross.svg" alt="cross-icon"></a>
     <h2 class="banner__title">${languageData["Get Unlimited <br>Access"]}</h2>
     <section class="banner__features features">
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
-                    srcset="../../public/images/features/f1/f1.avif,
-                    ../../public/images/features/f1/f1@2x.avif 2x,
-                    ../../public/images/features/f1/f1@3x.avif 3x,
+                    srcset="${SRC}images/features/f1/f1.avif,
+                    ${SRC}images/features/f1/f1@2x.avif 2x,
+                    ${SRC}images/features/f1/f1@3x.avif 3x,
                 ">
                 <source type="image/webp" 
-                    srcset="../../public/images/features/f1/f1.webp,
-                    ../../public/images/features/f1/f1@2x.webp 2x,
-                    ../../public/images/features/f1/f1@3x.webp 3x,
+                    srcset="${SRC}images/features/f1/f1.webp,
+                    ${SRC}images/features/f1/f1@2x.webp 2x,
+                    ${SRC}images/features/f1/f1@3x.webp 3x,
                 ">
                 <img 
-                    src="../../public/images/features/f1/f1.jpg" 
-                    srcset="../../public/images/features/f1/f1@2x.jpg 2x, 
-                    ../../public/images/features/f1/f1@3x.jpg 3x"
+                    src="${SRC}images/features/f1/f1.jpg" 
+                    srcset="${SRC}images/features/f1/f1@2x.jpg 2x, 
+                    ${SRC}images/features/f1/f1@3x.jpg 3x"
                 alt="feature">
             </picture>
             <p class="features__item-description">${languageData["Unlimited Art <br>Creation"]}</p>
@@ -41,19 +41,19 @@ function replacePrice(text, replacement) {
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
-                    srcset="../../public/images/features/f2/f2.avif,
-                    ../../public/images/features/f2/f2@2x.avif 2x,
-                    ../../public/images/features/f2/f2@3x.avif 3x,
+                    srcset="${SRC}images/features/f2/f2.avif,
+                    ${SRC}images/features/f2/f2@2x.avif 2x,
+                    ${SRC}images/features/f2/f2@3x.avif 3x,
                 ">
                 <source type="image/webp" 
-                    srcset="../../public/images/features/f2/f2.webp,
-                    ../../public/images/features/f2/f2@2x.webp 2x,
-                    ../../public/images/features/f2/f2@3x.webp 3x,
+                    srcset="${SRC}images/features/f2/f2.webp,
+                    ${SRC}images/features/f2/f2@2x.webp 2x,
+                    ${SRC}images/features/f2/f2@3x.webp 3x,
                 ">
                 <img 
-                    src="../../public/images/features/f2/f2.jpg" 
-                    srcset="../../public/images/features/f2/f2@2x.jpg 2x, 
-                    ../../public/images/features/f2/f2@3x.jpg 3x"
+                    src="${SRC}images/features/f2/f2.jpg" 
+                    srcset="${SRC}images/features/f2/f2@2x.jpg 2x, 
+                    ${SRC}images/features/f2/f2@3x.jpg 3x"
                 alt="feature">
             </picture>
             <p class="features__item-description">${languageData["Exclusive <br>Styles"]}</p>
@@ -61,19 +61,19 @@ function replacePrice(text, replacement) {
         <article class="features__item">
             <picture class="features__item-picture">
                 <source type="image/avif" 
-                    srcset="../../public/images/features/f3/f3.avif,
-                    ../../public/images/features/f3/f3@2x.avif 2x,
-                    ../../public/images/features/f3/f3@3x.avif 3x,
+                    srcset="${SRC}images/features/f3/f3.avif,
+                    ${SRC}images/features/f3/f3@2x.avif 2x,
+                    ${SRC}images/features/f3/f3@3x.avif 3x,
                 ">
                 <source type="image/webp" 
-                    srcset="../../public/images/features/f3/f3.webp,
-                    ../../public/images/features/f3/f3@2x.webp 2x,
-                    ../../public/images/features/f3/f3@3x.webp 3x,
+                    srcset="${SRC}images/features/f3/f3.webp,
+                    ${SRC}images/features/f3/f3@2x.webp 2x,
+                    ${SRC}images/features/f3/f3@3x.webp 3x,
                 ">
                 <img 
-                    src="../../public/images/features/f3/f3.jpg" 
-                    srcset="../../public/images/features/f3/f3@2x.jpg 2x, 
-                    ../../public/images/features/f3/f3@3x.jpg 3x"
+                    src="${SRC}images/features/f3/f3.jpg" 
+                    srcset="${SRC}images/features/f3/f3@2x.jpg 2x, 
+                    ${SRC}images/features/f3/f3@3x.jpg 3x"
                 alt="feature">
             </picture>
             <p class="features__item-description">${languageData["Magic Avatars <br>With 20% Off"]}</p>
