@@ -3,7 +3,7 @@ import '../css/style.css';
 import '../css/fonts.css';
 import {getSelectedLanguage, loadLanguageData} from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
-const SRC = import.meta.env.MODE === 'development' ? '../../public/' : '/arta/assets/';
+const SRC = import.meta.env.MODE === 'development' ? '../../public/' : '/arta/';
 const selectedLanguage = getSelectedLanguage();
 function replacePrice(text, replacement) {
     return text.replace('{{price}}', replacement);
