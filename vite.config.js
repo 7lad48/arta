@@ -1,7 +1,5 @@
-// vite.config.js
-export default {
-    base: '/arta/',
-    build: {
-        outDir: 'dist',
-    },
-};
+import {defineConfig} from "vite";
+
+export default defineConfig({
+    base: '/arta'
+})
