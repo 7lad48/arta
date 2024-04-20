@@ -22,7 +22,7 @@ const updateLanguageQueryParam = (language) => {
 };
 
 const loadLanguageData = async (language) => {
-    const jsonFilePath = `${LANGS}${language}.json`;
+    const jsonFilePath = `${LANGS}/${language}.json`;
     let data = {
         language: language,
         languageData: {},
