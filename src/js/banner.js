@@ -11,7 +11,7 @@ function replacePrice(text, replacement) {
 (async function getData() {
   const data = await loadLanguageData(selectedLanguage);
   const {language, languageData} = data;
-  const prices = await getActualPrice(data.language);
+  const prices = await getActualPrice(language);
 
   document.querySelector('#banner').innerHTML = `
   <section class="banner__content">
