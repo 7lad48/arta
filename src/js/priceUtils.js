@@ -1,6 +1,7 @@
+const PRICE = import.meta.env.MODE === 'development' ? '../../public/prices.json' : '/arta/prices.json';
 export async function getActualPrice(languageCode) {
     try {
-        const response = await fetch('../../public/prices.json');
+        const response = await fetch(PRICE);
         const jsonData = await response.json();
 
         let yearlyData = jsonData.yearly[languageCode];

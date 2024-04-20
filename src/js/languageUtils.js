@@ -1,3 +1,4 @@
+const LANGS = import.meta.env.MODE === 'development' ? '../../public/langs/' : '/arta/langs';
 const getSelectedLanguage = () => {
     const systemLanguage = navigator.language.split("-")[0];
     const urlParams = new URLSearchParams(window.location.search);
@@ -21,7 +22,7 @@ const updateLanguageQueryParam = (language) => {
 };
 
 const loadLanguageData = async (language) => {
-    const jsonFilePath = `../../public/langs/${language}.json`;
+    const jsonFilePath = `${LANGS}${language}.json`;
     let data = {
         language: language,
         languageData: {},
