@@ -203,7 +203,7 @@ html, body{
 .banner__footer:not(.--en,.--de,.--fr) {
     font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
-.banner__footer.--de, .banner__footer .--fr {
+.banner__footer.--de, .banner__footer.--fr {
     font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.7rem);
 }
 @media (orientation: landscape) and (max-height: 600px) {
