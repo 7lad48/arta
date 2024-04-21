@@ -4,20 +4,6 @@ import '../css/fonts.css';
 import {getSelectedLanguage, loadLanguageData} from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
 const SRC = import.meta.env.MODE === 'development' ? '../../public/' : '/arta/';
-screen.orientation.addEventListener("change", (event) => {
-    const type = event.target.type;
-    const angle = event.target.angle;
-
-    if (type.startsWith("landscape")) {
-        screen.orientation.lock("portrait").catch((error) => {
-            console.log("Failed to lock screen orientation:", error);
-        });
-    } else if (type.startsWith("portrait") && angle !== 0) {
-        screen.orientation.lock("portrait-primary").catch((error) => {
-            console.log("Failed to lock screen orientation:", error);
-        });
-    }
-});
 
 const selectedLanguage = getSelectedLanguage();
 function replacePrice(text, replacement) {
