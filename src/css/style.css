@@ -137,7 +137,7 @@ html, body{
     margin-top: 1px;
 }
 .plans__item-offer-title.--de, .plans__item-offer-title.--fr{
-    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 0.95rem);
+    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 0.94rem);
 }
 .plans__item-offer-description:not(.--en, .--es, .--de, .--ja){
     font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
@@ -203,6 +203,30 @@ html, body{
 .banner__footer:not(.--en,.--de,.--fr) {
     font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
-.banner__footer.--de, .banner__footer.--fr {
-    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.75rem)
+.banner__footer.--de, .banner__footer .--fr {
+    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.7rem);
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    #banner::before {
+        content: "";
+        background-color: rgba(0, 0, 0, .98);
+        backdrop-filter: blur(5px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+    }
+    #banner::after {
+        content: "Please use portrait mode";
+        font-size: 26px;
+        position: fixed;
+        display: block;
+        color: white;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+    }
 }
