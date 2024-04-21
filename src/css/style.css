@@ -8,8 +8,8 @@ html, body{
     left:0;
     right: 0;
     bottom: 0;
-    height: 100svh;
-    width: 100svw;
+    height: 100dvh;
+    width: 100dvw;
     max-width: 430px;
     max-height: 932px;
     margin: auto;
