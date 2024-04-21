@@ -136,8 +136,8 @@ html, body{
 .plans__item-price{
     margin-top: 1px;
 }
-.plans__item-offer-title:not(.--en, .--es, .--pt, .--ja){
-    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
+.plans__item-offer-title.--de, .plans__item-offer-title.--fr{
+    font-size: clamp(0.75rem, -0.955rem + 7.27vw, 0.95rem);
 }
 .plans__item-offer-description:not(.--en, .--es, .--de, .--ja){
     font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
@@ -203,13 +203,6 @@ html, body{
 .banner__footer:not(.--en,.--de,.--fr) {
     font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
-.banner__footer.--fr {
-    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.813rem)
+.banner__footer.--de, .banner__footer.--fr {
+    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.75rem)
 }
-.banner__footer.--de {
-    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.793rem)
-}
-
-/*@media (orientation: landscape) {*/
-/*    */
-/*}*/
