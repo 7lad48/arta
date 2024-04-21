@@ -1,13 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default ({mode}) => {
-    if(mode === 'development'){
-        return defineConfig({
-            base: '/'
-        })
-    } else {
-        return defineConfig({
-            base: '/arta/'
-        })
-    }
+    const baseUrl = mode === 'development' ? '/' : '/arta/'
+    return defineConfig({
+        base: baseUrl,
+    })
+
 }

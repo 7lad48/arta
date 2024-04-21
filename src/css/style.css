@@ -1,5 +1,6 @@
 html, body{
     overflow: hidden;
+    background-color: #180e2a;
 }
 .banner__content {
     position: fixed;
@@ -10,7 +11,8 @@ html, body{
     height: 100svh;
     width: 100svw;
     max-width: 430px;
-    margin: 0 auto;
+    max-height: 932px;
+    margin: auto;
     padding: 0 24px;
     display: flex;
     flex-direction: column;
@@ -27,10 +29,9 @@ html, body{
             url('/public/images/background/bg@2x.jpg') 2x,
             url('/public/images/background/bg.jpg') 1x
     );
-    background-position: 0 0;
+    background-position: 0 clamp(-2rem, -9.537rem + 18.08vh, 0rem);
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #180e2a;
     font-family: 'SF Pro Display', sans-serif;
     color: #fff;
 }
@@ -41,8 +42,7 @@ html, body{
     height: 22px;
     padding: 5px;
     align-self: flex-start;
-    /*top: 75px;*/
-    top: 8%;
+    top: clamp(2.188rem, -6.527rem + 20.9vh, 4.5rem);
     left: 21px;
 }
 .banner__close-btn img{
@@ -52,7 +52,8 @@ html, body{
 .banner__title {
     text-align: center;
     font-weight: 800;
-    font-size: 46px;
+    font-size: 42px;
+    line-height: 46px;
 }
 /* Features */
 .features{
@@ -97,16 +98,16 @@ html, body{
 }
 /* Plans */
 .plans{
-    margin-top: calc(5lvh + 7px);
+    margin-top: clamp(2.5rem, 0.298rem + 5.28vh, 3.375rem);
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(0.5rem, -1.384rem + 4.52vh, 1rem);
 }
 .plans__items{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 .plans__item input[type="radio"] {
     display: none;
@@ -128,7 +129,6 @@ html, body{
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
 }
-
 .plans__item-offer-title{
     font-weight: 600;
     color: #fff;
@@ -145,7 +145,6 @@ html, body{
 .plans__item-price:not(.--en, .--es, .--pt, .--ja){
     font-size:clamp(0.875rem, 0.023rem + 3.64vw, 1rem);
 }
-
 .plans__item > input[type="radio"]:checked + .plans__item-content {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 1);
@@ -197,30 +196,20 @@ html, body{
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin: 44px auto 10px auto;
+    margin: clamp(1.75rem, -2.025rem + 9.06vh, 3.25rem) auto clamp(0.625rem, -4.321rem + 11.86vh, 1.938rem) auto;
     color: rgba(255, 255, 255, 0.5);
     white-space: nowrap;
 }
 .banner__footer:not(.--en,.--de,.--fr) {
     font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
-.banner__footer.--de,.banner__footer.--fr {
+.banner__footer.--fr {
     font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.813rem)
 }
-
-/* media */
-@media (max-height: 737px) {
-    .banner__content {
-        background-position: 0 -32px;
-    }
-    .banner__close-btn{
-        top: 35px;
-        left: 20px;
-    }
-    .plans__items{
-        gap: 8px;
-    }
-    .banner__footer {
-        margin-top: 28px;
-    }
+.banner__footer.--de {
+    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.793rem)
 }
+
+/*@media (orientation: landscape) {*/
+/*    */
+/*}*/
