@@ -32,7 +32,7 @@ html, body{
     background-position: 0 clamp(-2rem, -9.537rem + 18.08vh, 0rem);
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'SF Pro', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     color: #fff;
 }
 .banner__close-btn{
