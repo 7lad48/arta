@@ -1,6 +1,5 @@
 import '../css/null.css';
 import '../css/style.css';
-import '../css/fonts.css';
 import {getSelectedLanguage, loadLanguageData} from './languageUtils.js';
 import {getActualPrice} from "./priceUtils.js";
 const SRC = import.meta.env.MODE === 'development' ? '../../public/' : '/arta/';

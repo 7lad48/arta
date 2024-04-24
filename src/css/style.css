@@ -32,7 +32,7 @@ html, body{
     background-position: 0 clamp(-2rem, -9.537rem + 18.08vh, 0rem);
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: 'SF Pro', sans-serif;
     color: #fff;
 }
 .banner__close-btn{
@@ -156,29 +156,9 @@ html, body{
     font-weight: 700;
     font-size: 13px;
     padding: 2px 22px;
-    background: linear-gradient(90deg, #0035FF 0%, #BC1FEF 100%);
-    color: #fff;
-    border-radius: 30px;
-}
-.plans__item--best-offer-mark::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: -1px;
-    border-radius: 30px;
-    background: linear-gradient(270deg, #00B5FF 0%, #632AF7 46.99%, #FF96F4 100%);
-    z-index: -1;
-}
-.plans__item > input[type="radio"]:checked + .plans__item-content > .plans__item--best-offer-mark {
-    background: white;
+    background-color: white;
     color: #000000;
-    border-color: transparent;
-}
-.plans__item > input[type="radio"]:checked + .plans__item-content > .plans__item--best-offer-mark::after {
-    background: white;
+    border-radius: 30px;
 }
 .plans__button{
     display: flex;
