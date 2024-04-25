@@ -136,14 +136,26 @@ html, body{
 .plans__item-price{
     margin-top: 1px;
 }
-.plans__item-offer-title.--de, .plans__item-offer-title.--fr{
+.plans__item-offer-title.--fr{
     font-size: clamp(0.75rem, -0.955rem + 7.27vw, 0.94rem);
+}
+.plans__item-offer-title.--de{
+    font-size: clamp(0.72rem, -0.955rem + 7.27vw, 0.80rem);
+}
+.plans__item-offer-title.--pt{
+    font-size: clamp(0.9rem, -0.955rem + 7.27vw, 1rem);
 }
 .plans__item-offer-description:not(.--en, .--es, .--de, .--ja){
     font-size: clamp(0.75rem, -0.955rem + 7.27vw, 1rem);
 }
 .plans__item-price:not(.--en, .--es, .--pt, .--ja){
     font-size:clamp(0.875rem, 0.023rem + 3.64vw, 1rem);
+}
+.plans__item-price.--de, .plans__item-price.--es{
+    font-size:clamp(0.83rem, 0.023rem + 3.64vw, .9rem);
+}
+.plans__item-price.--pt{
+    font-size:clamp(0.9rem, 0.023rem + 3.64vw, 1rem);
 }
 .plans__item > input[type="radio"]:checked + .plans__item-content {
     background-color: rgba(255, 255, 255, 0.3);
@@ -184,7 +196,7 @@ html, body{
     font-size: clamp(0.625rem, -0.653rem + 5.45vw, 0.813rem);
 }
 .banner__footer.--de, .banner__footer.--fr {
-    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.7rem);
+    font-size: clamp(0.563rem, -1.142rem + 7.27vw, 0.64rem);
 }
 @media (orientation: landscape) and (max-height: 600px) {
     #banner::before {
